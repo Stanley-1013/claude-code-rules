@@ -123,4 +123,3 @@ smaller model:
 
 ## Lessons
 <!-- Append per maintenance.md: - YYYY-MM-DD | trigger | rule -->
-- 2026-07-06 | portable repo docs stated this machine's state as fact ("PATH already set", "skill already installed"); broke on migration to another machine | docs that travel (any git repo, shared file) must phrase machine state as per-machine setup steps; state-as-fact belongs only in machine-local files like ~/.claude
