@@ -14,3 +14,6 @@
 !hooks/
 !hooks/*.py
 !hooks/*.md
+!templates/
+!templates/*.template
+# machine.md is intentionally NOT whitelisted: per-machine, never committed.

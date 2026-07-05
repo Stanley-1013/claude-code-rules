@@ -20,6 +20,12 @@ Applies to: `~/.claude/CLAUDE.md`, `~/.claude/rules/*.md`,
 4. Read the changed section back and confirm the edit landed as intended.
 5. If you renamed/moved/deleted a rules file: update the routing table in
    CLAUDE.md in the SAME turn — a dead pointer is worse than no pointer.
+6. Commit and push: `~/.claude` is a git repo (remote: github.com,
+   institution files only — the whitelist `.gitignore` must stay whitelist-
+   style; never `git add -f` anything). After the edit lands:
+   `cd ~/.claude && git add -A && git commit -m "<what changed and why>" && git push`
+   (Bash tool). A push failure is non-fatal: report it and move on; never
+   let it block the user's actual task.
 
 ## 2. What you may change WITHOUT asking the user
 - **Append a Lesson** (format in §4) to the `## Lessons` section of the

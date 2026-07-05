@@ -56,14 +56,16 @@ Cloud models available on this machine (Agent tool `model` parameter):
 | `opus`   | Opus 4.8         | Arbiter and hard cases: second opinions, architecture calls, tasks Sonnet failed twice (§5), subtle debugging. Costs ~5× Sonnet — always state to yourself why Opus is needed before using it. |
 | `fable`  | Fable 5          | Do not plan around it: only available on special plans, likely absent from this environment after 2026-07-05. If a spawn with `model: fable` errors, fall back to `opus`. |
 
-**Level 0 — local models (free):** the `lmh` CLI (documented by the `lmh`
-user skill; run it in a shell, don't invoke it via the Skill tool if the
-skill isn't listed) routes to local Ollama
-models (4B–8B). Use for zero-stakes drafting: first-pass translation,
+**Level 0 — local models (free, machine-dependent):** check
+`~/.claude/machine.md` for whether this machine has them. Where the `lmh`
+CLI exists (documented by the `lmh` user skill; run it in a shell, don't
+invoke it via the Skill tool if the skill isn't listed), it routes to local
+Ollama models (4B–8B). Use for zero-stakes drafting: first-pass translation,
 summarizing a document you will re-check, boilerplate text. Everything it
 produces must be verified by a cloud model before reaching the user or a file
 (see the lmh skill for rules). Never use lmh for judgment calls or facts you
-won't check.
+won't check. No local models on this machine → Level 0 doesn't exist; the
+cheap tier is haiku.
 
 **Effort:** the Agent tool call itself has no effort parameter. Effort is
 pinned in an agent definition file's frontmatter (`~/.claude/agents/*.md`),

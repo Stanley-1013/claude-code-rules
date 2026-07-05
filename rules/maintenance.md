@@ -33,6 +33,10 @@ Applies to: `~/.claude/CLAUDE.md`, `~/.claude/rules/*.md`,
 - **Correct a factual claim you have disproven this session with evidence**
   (a path that no longer exists, a command form that changed). Include the
   evidence in the edit's vicinity: update the "verified YYYY-MM-DD" date.
+  Machine-specific facts (shell traps, paths, local tools, enabled hooks) go
+  in the UNTRACKED `~/.claude/machine.md` — edit it freely, no backup or
+  commit; only §1 step 1 (read first) and step 4 (read back) apply. Never
+  move a machine fact into a tracked file.
 - **Fix typos/formatting** that don't change meaning.
 
 ## 3. What REQUIRES asking the user first
@@ -55,9 +59,10 @@ prevented, or discovered a machine-specific fact the hard way.
 
 Append ONE line to the `## Lessons` section of the *most relevant* rules
 file — dispatch.md for delegation/model lessons, judgment.md for
-decision lessons, delegation-templates.md for prompt-shape lessons.
-CLAUDE.md itself gets no Lessons section; only environment-fact corrections
-go there (per §2).
+decision lessons, delegation-templates.md for prompt-shape lessons,
+maintenance.md for lessons about maintaining/structuring these files.
+CLAUDE.md itself gets no Lessons section and no machine facts (those go to
+the untracked machine.md, per §2).
 
 Format (one line, pipe-separated):
 ```
@@ -86,3 +91,4 @@ When a session is idle-ish or a rules file is being read anyway and its
 
 ## Lessons
 <!-- Append per §4: - YYYY-MM-DD | trigger | rule -->
+- 2026-07-06 | machine-specific env facts committed into the shared CLAUDE.md fought each other after migrating to a second machine | tracked files hold only portable rules; per-machine facts live in untracked ~/.claude/machine.md loaded via @import, one per machine

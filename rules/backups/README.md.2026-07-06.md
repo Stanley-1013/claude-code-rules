@@ -43,7 +43,6 @@ git remote add origin https://github.com/Stanley-1013/claude-code-rules.git
 git fetch origin
 git reset --hard origin/main
 git branch --set-upstream-to=origin/main main
-[ -e machine.md ] || cp templates/machine.md.template machine.md
 ```
 
 Notes:
@@ -104,14 +103,11 @@ the next session, not this one."**
 
 ### B5. Machine-specific facts (first session after install)
 
-Machine facts live in `~/.claude/machine.md` — UNTRACKED, one per machine,
-imported by CLAUDE.md at session start. B1 created it from
-`templates/machine.md.template`; in the first working session, fill its
-⟨blanks⟩ with facts you verify on THIS machine (shell type and traps, path
-quirks, local models, enabled hooks). Never commit machine.md, never copy
-another machine's version, and never write per-machine facts into the
-tracked CLAUDE.md — two machines sharing this repo would fight over them
-(this happened once; see rules/maintenance.md § Lessons).
+`CLAUDE.md` § Environment facts describes the machine this repo was born on
+(Windows 11, PowerShell 5.1, OneDrive paths, `lmh` local models). On a
+different machine, verify those facts in the first working session and
+correct what differs — per the edit rules in `rules/maintenance.md` §1–§2
+(backup first, evidence required, commit + push after).
 
 ## Layout
 
@@ -125,7 +121,6 @@ tracked CLAUDE.md — two machines sharing this repo would fight over them
 | `rules/maintenance.md` | How future sessions may edit these files: backup-first, lessons format, compaction triggers, what requires user approval. |
 | `rules/letter-to-future-sessions.md` | Handoff letter: unasked-but-important facts, predicted failure modes of this rule set, countermeasures. |
 | `rules/backups/` | Dated copies made before edits (maintenance.md §1). |
-| `templates/machine.md.template` | Skeleton for the untracked per-machine `~/.claude/machine.md` (created by B1, filled per B5). |
 | `agents/verifier.md` | Read-only fresh-context acceptance agent (PASS/FAIL/CANNOT-VERIFY per criterion). |
 | `hooks/ps51_guard.py` | PreToolUse hook: blocks PowerShell 5.1 parser traps (`&&`, `\|\|`, `2>&1`) before execution. Cross-OS safe: platform guard exits 0 on non-Windows, fail-open on malfunction, stdlib-only Python. Enablement is per-machine (§B2) — cloning never auto-enables it. |
 

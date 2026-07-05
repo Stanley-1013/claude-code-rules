@@ -1,0 +1,19 @@
+# Machine facts — ⟨short machine name⟩ (untracked; THIS machine only)
+
+<!-- Copied from templates/machine.md.template by bootstrap step B1.
+     Fill every line with facts you VERIFIED on this machine this session —
+     run the check, don't copy another machine's file or guess from training
+     data. Delete lines that don't apply. This file never enters git:
+     no backup, no commit; edits are free. -->
+
+- OS & shell (verified ⟨YYYY-MM-DD⟩): ⟨e.g. "macOS 15, zsh; PowerShell tool
+  absent" or "Windows 11, PowerShell 5.1 — no &&/||, Out-File defaults to
+  UTF-16, prefer Bash tool for POSIX work"⟩
+- Path quirks: ⟨cloud-synced dirs, non-ASCII segments, where new projects
+  should live — or "none found"⟩
+- Known traps: ⟨dead .git dirs, folders where banners mislead, permission
+  oddities — or "none found yet"⟩
+- Local free models: ⟨lmh/ollama present? how to invoke? — or "none"⟩
+- Hooks enabled in settings.json on this machine: ⟨check settings.json —
+  e.g. ps51_guard.py on Windows, or "none"⟩
+- Other facts sessions keep rediscovering here: ⟨append as you learn them⟩

@@ -9,17 +9,19 @@
 - Reply to the user in the language they write in (usually Traditional
   Chinese). Code, commits, and rule files stay in English.
 
-## Environment facts (machine-local, imported)
-This file is shared across machines via git; per-machine facts live in the
-UNTRACKED `~/.claude/machine.md`, imported here:
-
-@machine.md
-
-If that import shows nothing (file missing — e.g. right after cloning to a
-new machine), create `~/.claude/machine.md` from
-`~/.claude/templates/machine.md.template`, fill it with facts verified on
-THIS machine, and never commit it. Portable rule that holds everywhere:
-trust command output over harness banners and memory notes.
+## Environment facts (Windows 11, verified 2026-07-05)
+- Shell traps — PowerShell here is 5.1: no `&&`/`||` (use `;` or
+  `if ($?) {}`), `Out-File`/`Set-Content` default to UTF-16 (always pass
+  `-Encoding utf8`), don't append `2>&1` to native exes. Prefer the Bash tool
+  for POSIX-shaped work.
+- Paths contain Chinese segments (e.g. `OneDrive\桌面\...`) — always quote;
+  OneDrive can hold file locks; a failed write may be sync interference, retry
+  once then suspect the path.
+- Trust command output over harness banners: at least one folder here
+  (`OneDrive\桌面\DCIM`) has a dead `.git` that the banner reports as a repo.
+- Local free models exist: the `lmh` CLI (documented by the `lmh` user
+  skill) runs 4B–8B Ollama models for zero-stakes drafting. Their output is
+  never verified — check before use.
 
 ## Hard rules (non-negotiable)
 1. **Never self-verify.** Files: read back. Code: run tests or the real flow.
