@@ -1,0 +1,16 @@
+# Whitelist mode: ignore everything, then re-include only the institution files.
+# ~/.claude contains session history, caches, and credentials-adjacent state —
+# none of that may ever be committed.
+*
+!.gitignore
+!README.md
+!CLAUDE.md
+!rules/
+!rules/*.md
+!rules/backups/
+!rules/backups/*.md
+!agents/
+!agents/*.md
+!hooks/
+!hooks/*.py
+!hooks/*.md
