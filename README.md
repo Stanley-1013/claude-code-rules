@@ -23,7 +23,7 @@ negative examples.
 | `rules/letter-to-future-sessions.md` | Handoff letter: unasked-but-important facts, predicted failure modes of this rule set, countermeasures. |
 | `rules/backups/` | Dated copies made before edits (maintenance.md §1). |
 | `agents/verifier.md` | Read-only fresh-context acceptance agent (PASS/FAIL/CANNOT-VERIFY per criterion). |
-| `hooks/ps51_guard.py` | Optional PreToolUse hook: blocks PowerShell 5.1 parser traps (`&&`, `\|\|`, `2>&1`) before execution. Enablement snippet in the file's docstring. Not active unless wired into `settings.json`. |
+| `hooks/ps51_guard.py` | PreToolUse hook: blocks PowerShell 5.1 parser traps (`&&`, `\|\|`, `2>&1`) before execution. Cross-OS safe: platform guard exits 0 on non-Windows, fail-open on malfunction, stdlib-only Python. Per-machine enablement snippet in the docstring (`settings.json` is not in this repo, so cloning never auto-enables it). |
 
 ## Design notes
 
