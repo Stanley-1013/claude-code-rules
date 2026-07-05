@@ -5,9 +5,7 @@
 > 預設指揮官是 Sonnet 5。每次要派工前，先照著這份做。
 
 Assumes the main conversation ("the commander") runs on **Sonnet 5** by
-default (the machine's setting may still read `claude-fable-5[1m]` — that was
-the one-off session that wrote these files; Sonnet 5 is the steady state).
-Written 2026-07-05; model names verified against this machine at that date.
+default. Written 2026-07-05; model names verified at that date.
 
 ## 1. The commander does not descend
 
@@ -47,7 +45,8 @@ Fill-in templates for the five common task shapes are in
 
 ## 3. Explicit model choice — never spawn without deciding
 
-Cloud models available on this machine (Agent tool `model` parameter):
+Cloud models available on this account (Agent tool `model` parameter; a
+spawn error on an alias means it's absent on the current plan):
 
 | Alias    | Model            | Use for |
 |----------|------------------|---------|

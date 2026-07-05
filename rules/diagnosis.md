@@ -41,10 +41,12 @@ memory. Every session re-discovered the same facts by trial and error: that
 PowerShell 5.1 rejects `&&`, that paths contain Chinese characters, that a
 local Ollama harness (`lmh`) exists, which cloud models are available. Each
 re-discovery costs a failed tool call or an exploratory detour.
-**Fix:** `~/.claude/CLAUDE.md` now pins these facts. Keep it accurate via the
-lessons loop in `~/.claude/rules/maintenance.md` — a mistake that is made
-twice and written down once is a leak plugged; a mistake made twice and not
-written down will be made a third time.
+**Fix:** per-machine facts now live in the untracked `~/.claude/machine.md`
+(imported by CLAUDE.md at session start; created from
+`templates/machine.md.template`). Update machine.md directly when a fact
+changes — no backup/commit needed (maintenance.md §2). Portable lessons still
+go through the lessons loop (maintenance.md §4) — a mistake made twice and
+written down once is a leak plugged; unwritten, it recurs.
 
 ## 2. Focus-loss risks
 
@@ -66,8 +68,8 @@ transient. Weaker models retry the same command verbatim 3–5 times, each retry
 adding a full error dump to context.
 **Fix:** hard cap in CLAUDE.md Hard rule 2 (details in dispatch.md §5): same
 command may be retried at most once unchanged. Second failure means the
-command is wrong — consult CLAUDE.md § Environment facts, change the
-command, or change approach.
+command is wrong — consult machine.md (imported via CLAUDE.md
+§ Environment facts), change the command, or change approach.
 
 ### 2.3 Heavyweight pipelines when a light mode suffices
 **Symptom:** the ARS `/ars-full` pipeline costs ≈$4–6 and produces a very
@@ -84,8 +86,8 @@ wrong pipeline.
 ### 3.1 PowerShell 5.1 + encoding
 Top recurring failures: `&&` / `||` (parser error), `Out-File` writing UTF-16
 that later tools misread, `2>&1` on native exes poisoning `$?`. The
-known-good patterns are pinned in CLAUDE.md § Environment facts. Prefer the
-Bash tool for anything POSIX-shaped.
+known-good patterns are pinned in this machine's `~/.claude/machine.md`.
+Prefer the Bash tool for anything POSIX-shaped.
 
 ### 3.2 Trusting local-model (lmh) output
 `lmh` routes to 4B–8B Ollama models. They are drafting tools: useful for

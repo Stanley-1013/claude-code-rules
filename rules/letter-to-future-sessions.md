@@ -10,13 +10,13 @@ almost everything here, *if* you use the structure instead of improvising.
 ## Three things the user didn't ask me, but you should know
 
 ### 1. The filesystem is the biggest silent tax
-Active work lives partly under `OneDrive\桌面\...` — Chinese path segments,
-OneDrive sync locks, and at least one dead `.git` (DCIM). Cloud-synced paths
-with non-ASCII segments are where tool calls go to die quietly. When starting
-any NEW project, propose `C:\Users\ak990\Projects\<name>` (short, ASCII,
-un-synced) and a real `git init`. When working in existing OneDrive folders,
-expect the traps listed in CLAUDE.md § Environment facts and don't
-misattribute them to your own code.
+Cloud-synced paths with non-ASCII segments are where tool calls go to die
+quietly (on the origin machine: `OneDrive\桌面\...`, Chinese segments, one
+dead `.git` in DCIM). When starting any NEW project, propose a short, ASCII,
+un-synced directory (this machine's convention is in `~/.claude/machine.md`)
+and a real `git init`. When working inside cloud-synced folders, expect the
+traps listed in machine.md (imported at the top of every session via
+CLAUDE.md) and don't misattribute them to your own code.
 
 ### 2. Global vs project knowledge — don't cross the streams
 This rule set (`~/.claude/`) is global: it must stay true in every folder.

@@ -124,7 +124,7 @@ tracked CLAUDE.md — two machines sharing this repo would fight over them
 | `rules/delegation-templates.md` | Five fill-in-the-blank dispatch prompts (search / implement / refactor / research / review). |
 | `rules/maintenance.md` | How future sessions may edit these files: backup-first, lessons format, compaction triggers, what requires user approval. |
 | `rules/letter-to-future-sessions.md` | Handoff letter: unasked-but-important facts, predicted failure modes of this rule set, countermeasures. |
-| `rules/backups/` | Dated copies made before edits (maintenance.md §1). |
+| `rules/backups/` | Dated copies made before edits (maintenance.md §1). Local-only, untracked — shared backups from two machines would collide. |
 | `templates/machine.md.template` | Skeleton for the untracked per-machine `~/.claude/machine.md` (created by B1, filled per B5). |
 | `agents/verifier.md` | Read-only fresh-context acceptance agent (PASS/FAIL/CANNOT-VERIFY per criterion). |
 | `hooks/ps51_guard.py` | PreToolUse hook: blocks PowerShell 5.1 parser traps (`&&`, `\|\|`, `2>&1`) before execution. Cross-OS safe: platform guard exits 0 on non-Windows, fail-open on malfunction, stdlib-only Python. Enablement is per-machine (§B2) — cloning never auto-enables it. |
@@ -144,6 +144,7 @@ tracked CLAUDE.md — two machines sharing this repo would fight over them
 
 ## Not included, deliberately
 
-`settings.json`, `settings.local.json`, session history, caches, plugin
-state, credentials — anything that is machine state rather than institution.
-The whitelist `.gitignore` enforces this; keep it whitelist-style.
+`settings.json`, `settings.local.json`, `machine.md`, `rules/backups/`,
+session history, caches, plugin state, credentials — anything that is
+machine state rather than institution. The whitelist `.gitignore` enforces
+this; keep it whitelist-style.

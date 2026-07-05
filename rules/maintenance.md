@@ -22,10 +22,15 @@ Applies to: `~/.claude/CLAUDE.md`, `~/.claude/rules/*.md`,
    CLAUDE.md in the SAME turn — a dead pointer is worse than no pointer.
 6. Commit and push: `~/.claude` is a git repo (remote: github.com,
    institution files only — the whitelist `.gitignore` must stay whitelist-
-   style; never `git add -f` anything). After the edit lands:
-   `cd ~/.claude && git add -A && git commit -m "<what changed and why>" && git push`
-   (Bash tool). A push failure is non-fatal: report it and move on; never
-   let it block the user's actual task.
+   style; never `git add -f` anything). Other machines push to the same
+   repo, so sync before pushing — commit FIRST (rebase refuses a dirty
+   tree), then pull, then push:
+   `cd ~/.claude && git add -A && git commit -m "<what changed and why>" && git pull --rebase && git push`
+   (Bash tool). If the rebase conflicts, resolve by keeping BOTH machines'
+   rule edits where possible; if unsure, abort (`git rebase --abort`),
+   commit locally only, and report the divergence to the user. A push
+   failure is non-fatal: report it and move on; never let it block the
+   user's actual task.
 
 ## 2. What you may change WITHOUT asking the user
 - **Append a Lesson** (format in §4) to the `## Lessons` section of the

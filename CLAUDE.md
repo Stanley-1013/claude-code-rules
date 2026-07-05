@@ -59,7 +59,8 @@ If a referenced file is missing, say so to the user and continue with this
 file's hard rules — do not invent the missing content.
 
 ## Lessons loop
-When you hit a repeatable mistake (wrong command form, wrong assumption about
-this machine), append it to the `## Lessons` section of the matching rules
-file per maintenance.md. A mistake written down once is plugged; unwritten, it
+When you hit a repeatable mistake, write it down: portable lessons go to the
+`## Lessons` section of the matching rules file per maintenance.md §4;
+machine-specific facts (shell traps, paths, local tools) go to the untracked
+`~/.claude/machine.md`. A mistake written down once is plugged; unwritten, it
 recurs every session.

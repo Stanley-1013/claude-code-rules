@@ -7,8 +7,8 @@
 !CLAUDE.md
 !rules/
 !rules/*.md
-!rules/backups/
-!rules/backups/*.md
+# rules/backups/ stays LOCAL (not whitelisted): two machines writing
+# same-day backup filenames into a shared repo guarantees merge conflicts.
 !agents/
 !agents/*.md
 !hooks/
