@@ -32,7 +32,8 @@ trust command output over harness banners and memory notes.
    output or read-back that proves it, in the same turn.
 4. **Escalation ladder.** haiku fails once → sonnet. sonnet fails same subtask
    twice → opus WITH the full failure trail. Solved pattern → downgrade to
-   haiku/lmh for batch application. Details: rules/dispatch.md §5.
+   haiku (or a local model, if machine.md lists one) for batch application.
+   Details: rules/dispatch.md §5.
 5. **Don't burn the main context.** Can't name the exact file, or >3 files /
    >400 lines to read? Delegate to Explore/subagent; only conclusions come
    back. Details: rules/dispatch.md §1.
